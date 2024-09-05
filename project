@@ -18,3 +18,60 @@ SELECT Condition,
        COUNT(Visit_Date) / COUNT(DISTINCT Patient_ID) AS Average_Visits_Per_Patient
 FROM Patient_Records
 GROUP BY Condition;
+
+
+
+Query 2: Doctor Performance Evaluation
+Question: What is the average number of appointments handled by each doctor?
+
+Table: Appointments
+
+Appointment_ID	       Doctor_ID	        Patient_ID	     Appointment_Date
+1	                      101	                1	            2024-01-10
+2	                      101	                2	            2024-02-12
+3	                      102	                3	            2024-03-15
+4	                      101	                1	            2024-04-25
+5	                      103	                2	            2024-05-22
+
+
+SELECT Doctor_ID, 
+       COUNT(Appointment_ID) AS Number_of_Appointments,
+       COUNT(Appointment_ID) / COUNT(DISTINCT Doctor_ID) AS Average_Appointments_Per_Doctor
+FROM Appointments
+GROUP BY Doctor_ID;
+
+
+Query 3: Appointment Scheduling Efficiency
+Question: What is the average time between scheduling and the actual appointment date?
+
+Table: Appointments
+
+Appointment_ID	Patient_ID	Doctor_ID	Scheduled_Date	Appointment_Date
+1	                  1        101	      2024-01-01	   2024-01-10
+2	                  2	       101	      2024-01-20	   2024-02-12
+3	                  3	       102	      2024-02-15	   2024-03-15
+
+
+SELECT AVG(DATEDIFF(Appointment_Date, Scheduled_Date)) AS Average_Days_Between_Scheduling_and_Appointment
+FROM Appointments;
+
+
+
+
+
+Query 4: Billing Information Summary
+Question: What is the total amount billed by each doctor?
+
+Table: Billing
+
+Billing_ID	         Doctor_ID	        Amount_Billed
+1	                    101	                150.00
+2	                    101	                200.00
+3	                    102	                100.00
+4	                    101	                250.00
+5	                    103	                300.00
+
+SELECT Doctor_ID, 
+       SUM(Amount_Billed) AS Total_Amount_Billed
+FROM Billing
+GROUP BY Doctor_ID;
