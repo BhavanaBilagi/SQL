@@ -3,12 +3,12 @@ Question: What is the average length of hospital stay for patients with each con
 
 Table: Hospital_Stays
 --------------------------------------------------------------------------
-Patient_ID	          |           Condition        |  Length_of_Stay (Days)
-1	                  |        Heart Disease       |          	 7
-3	                  |       Respiratory Issue    |             4
-4	                  |          Diabetes	       |             6
-5	                  |          Heart Disease	   |             8
-6	                  |         Respiratory Issues |             3
+Patient_ID	           |           Condition         |  Length_of_Stay (Days)
+1	                  |        Heart Disease        |           7
+3	                  |       Respiratory Issue     |           4
+4	                  |          Diabetes	      |           6
+5	                  |          Heart Disease      |           8
+6	                  |         Respiratory Issues  |           3
 ---------------------------------------------------------------------------
 
 SELECT Condition, 
