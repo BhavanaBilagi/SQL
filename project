@@ -1,0 +1,20 @@
+Query 1: Patient History Analysis
+Question: What are the average number of visits per patient for each condition?
+
+Table: Patient_Records
+
+Patient_ID	          Condition	           Visit_Date
+1	                  Diabetes	           2024-01-15
+1	                  Diabetes	           2024-04-20
+2	                 Heart Disease	       2024-02-10
+2	                 Heart Disease	       2024-05-15
+2	                 Heart Disease	       2024-07-22
+3	               Respiratory Issues	   2024-03-18
+
+
+
+SELECT Condition, 
+       COUNT(DISTINCT Patient_ID) AS Number_of_Patients,
+       COUNT(Visit_Date) / COUNT(DISTINCT Patient_ID) AS Average_Visits_Per_Patient
+FROM Patient_Records
+GROUP BY Condition;
